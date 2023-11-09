@@ -13,6 +13,11 @@ import sentiment from "./route/sentiment"
 import stock from "./route/stocks"
 import watchlist from "./route/watchlist"
 import { User } from './db'
+import * as dotenv from "dotenv"
+
+dotenv.config()
+
+const mongoose_url = process.env.MONGOOSE_URL
 const app = express();
 const port = 3000
 
@@ -23,7 +28,7 @@ app.use(cors())
 
 
 
-mongoose.connect("mongodb+srv://yashabhaybhende:yash@cluster0.6tepwax.mongodb.net/",)
+mongoose.connect(mongoose_url,)
 
 
 app.use("/signin",signin)
